@@ -13,6 +13,9 @@ int main()
 	cin >> choose;
 	Polinom first;
 	Polinom second;
+	cout << "INPUT RULES" << endl;
+	cout << "Order of monomials: <coefficient(double)><x^><xPow(int)><y^><yPow(int)><z^><zPow(int)>" << endl;
+	cout << "+ or - signs follow between monomials" << endl;
 	cout << "Enter polynomial:" << endl;
 	cin >> first;
 	try 
@@ -23,22 +26,22 @@ int main()
 			double val;
 			cout << "Enter constant:" << endl;
 			cin >> val;
-			cout << first * val << endl;
+			cout << "Res: " << first * val << endl;
 			break;
 		case 2:
 			cout << "Enter polynomial:" << endl;
 			cin >> second;
-			cout << first * second << endl;
+			cout << "Res: " << first * second << endl;
 			break;
 		case 3:
 			cout << "Enter polynomial:" << endl;
 			cin >> second;
-			cout << first + second << endl;
+			cout << "Res: " << first + second << endl;
 			break;
 		case 4:
 			cout << "Enter polynomial:" << endl;
 			cin >> second;
-			cout << first - second << endl;
+			cout << "Res: "<< first - second << endl;
 			break;
 		default:
 			cout << "Wrong number!";

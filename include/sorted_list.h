@@ -40,6 +40,10 @@ public:
 
     SortedList& operator =(const SortedList& other)
     {
+        if(this == &other)
+        {
+            return *this;
+        }
         sz = other.sz;
         Node* cur = head;
         Node* tmp;
@@ -94,8 +98,8 @@ public:
         {
             if(cur->next->data < elem)
             {
-                break;
                 isTail = false;
+                break;
             }
             cur = cur->next;
         }
@@ -114,15 +118,22 @@ public:
         {
             throw out_of_range("index bigger the size!");
         }
+        sz--;
         Node* cur = head;
-        for(size_t i = 0; i < ind+1;i++)
+        for(size_t i = 0; i < ind;i++)
         {
             cur = cur->next;
         }
-        Node* next = cur->next->next;
-        delete cur->next;
-        cur->next = next;
-        sz--;
+        Node* next = cur->next;
+        if(next == tail)
+        {
+            delete next;
+            cur->next = nullptr;
+            tail = cur;
+            return;
+        }
+        cur->next = next->next;
+        delete next;
     }
 
     T& at(size_t ind)

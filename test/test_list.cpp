@@ -37,6 +37,13 @@ TEST(SortedList, can_assign_list)
 	ASSERT_NO_THROW(lCopy = l);
 }
 
+TEST(SortedList, can_assign_list_to_itself)
+{
+	SortedList<int> l;
+	l.push(7);
+	ASSERT_NO_THROW(l = l);
+}
+
 TEST(SortedList, assigned_list_is_equal_to_source_one)
 {
 	SortedList<int> l;
@@ -81,9 +88,9 @@ TEST(SortedList, can_pop_element)
 	SortedList<int> expl;
 	expl.push(10);
 	expl.push(9);
-	expl.push(7);
+	expl.push(8);
 
-	l.pop(2);
+	l.pop(3);
 	EXPECT_EQ(l, expl);
 }
 
